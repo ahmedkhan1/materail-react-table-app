@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import { MaterialReactTable, useMaterialReactTable } from 'material-react-table';
 
 function App() {
   return (
