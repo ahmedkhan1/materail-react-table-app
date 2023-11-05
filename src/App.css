@@ -10,3 +10,7 @@ html, body, #root {
   justify-content: center;
   align-items: center;
 }
+
+.react-table-container div {
+  width: 100%;
+}

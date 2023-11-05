@@ -47,5 +47,5 @@ export default function ReactTable() {
 
   //note: you can also pass table options as props directly to <MaterialReactTable /> instead of using useMaterialReactTable
   //but that is not recommended and will likely be deprecated in the future
-  return <MaterialReactTable table={table} />;
+  return <MaterialReactTable table={table} style={{'width': '100%'}} />;
 }
