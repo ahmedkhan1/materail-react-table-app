@@ -1,13 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
-import { MaterialReactTable, useMaterialReactTable } from 'material-react-table';
+import { useMemo } from 'react';
+import {
+  MaterialReactTable,
+  useMaterialReactTable,
+} from 'material-react-table';
 
-//recommended flat structure for data, but not required (nested data is fine, but takes more setup in column definitions)
-//must be memoized or stable (useState, useMemo, defined outside of the component, etc.)
+
+//mock data - strongly typed if you are using TypeScript (optional, but recommended)
 const data = [
   {
-    name: 'John', // key "name" matches `accessorKey` in ColumnDef down below
-    age: 30, // key "age" matches `accessorKey` in ColumnDef down below
+    name: 'John',
+    age: 30,
   },
   {
     name: 'Sara',
@@ -15,25 +17,35 @@ const data = [
   },
 ];
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+export default function App() {
+  //column definitions - strongly typed if you are using TypeScript (optional, but recommended)
+  const columns = useMemo(
+    () => [
+      {
+        accessorKey: 'name', //simple recommended way to define a column
+        header: 'Name',
+        muiTableHeadCellProps: { style: { color: 'green' } }, //custom props
+      },
+      {
+        accessorFn: (originalRow) => originalRow.age, //alternate way
+        id: 'age', //id required if you use accessorFn instead of accessorKey
+        header: 'Age',
+        Header: <i style={{ color: 'red' }}>Age</i>, //optional custom markup
+      },
+    ],
+    [],
   );
-}
 
-export default App;
+  //pass table options to useMaterialReactTable
+  const table = useMaterialReactTable({
+    columns,
+    data, //must be memoized or stable (useState, useMemo, defined outside of this component, etc.)
+    enableRowSelection: true, //enable some features
+    enableColumnOrdering: true,
+    enableGlobalFilter: false, //turn off a feature
+  });
+
+  //note: you can also pass table options as props directly to <MaterialReactTable /> instead of using useMaterialReactTable
+  //but that is not recommended and will likely be deprecated in the future
+  return <MaterialReactTable table={table} />;
+}
