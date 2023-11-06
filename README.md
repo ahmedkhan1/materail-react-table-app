@@ -2,6 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+![image](https://github.com/ahmedkhan1/material-react-table-app/assets/26416009/523fa3b4-20bc-4ed8-b7e1-faa866213659)
+
+
 ## Available Scripts
 
 In the project directory, you can run:
