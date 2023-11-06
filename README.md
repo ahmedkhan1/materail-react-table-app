@@ -3,6 +3,7 @@
 <h3>Description:</h3>
 This project contains material react table example app which shows how it works.
 
+
 ![image](https://github.com/ahmedkhan1/material-react-table-app/assets/26416009/523fa3b4-20bc-4ed8-b7e1-faa866213659)
 
 
