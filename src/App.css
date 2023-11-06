@@ -19,3 +19,8 @@ html, body, #root {
 .react-table-container > div {
   width: 100%;
 }
+
+.table-heading {
+  margin-bottom: 5rem;
+  border-bottom: 3px solid;
+}
