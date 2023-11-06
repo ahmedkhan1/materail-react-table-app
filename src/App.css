@@ -16,6 +16,6 @@ html, body, #root {
   flex-direction: column;
 }
 
-.react-table-container div {
+.react-table-container > div {
   width: 100%;
 }
